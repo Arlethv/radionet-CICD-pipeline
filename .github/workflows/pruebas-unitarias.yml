@@ -1,0 +1,36 @@
+# This is a basic workflow that is manually triggered
+
+name: Pruebas Unitarias
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Revisar Repositorio
+        uses: actions/checkout@v2
+
+      - name: Ejecutar Pruebas Unitarias
+        run: |
+          echo "Verificando enlaces ..."
+          link-checker index.html
+          
+          echo "Validación de HTML..."
+          html-validate index.html
+          
+          echo "Ejecución de pruebas de rendimiento..."
+          lighthouse index.html
+          
+          echo "Ejecución de pruebas de accesibilidad..."
+          axe index.html
+          
+          npm run test
+
+      - name: Mostrar Resultados
+        id: resultado-pruebas
+        run: echo "::set-output name=resultado::$(npm run test --silent)"
