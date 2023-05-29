@@ -15,7 +15,7 @@ jobs:
       - name: Revisar Repositorio
         uses: actions/checkout@v2
 
-      - name: Ejecutar Pruebas Unitarias
+      - name: Pruebas Unitarias
         run: |
           echo "Verificando enlaces ..."
           link-checker index.html
@@ -29,7 +29,11 @@ jobs:
           echo "Ejecución de pruebas de accesibilidad..."
           axe index.html
           
-          npm run test
+      - name: Instalar dependencias
+        run: npm ci
+        
+      - name: Ejecutar Pruebas
+        run: npm run test
 
       - name: Mostrar Resultados
         id: resultado-pruebas
