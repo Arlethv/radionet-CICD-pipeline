@@ -36,6 +36,6 @@ describe('Prueba de validación de campos', () => {
     expect(errorMessage).toBe('El campo de correo electrónico es obligatorio');
   });
 
-  // Agrega más pruebas según sea necesario
+  
 });
 
