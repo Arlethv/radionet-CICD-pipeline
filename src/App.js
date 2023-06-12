@@ -148,7 +148,7 @@ débil, y como meta, la expansión de sus servicios para brindar comunicación p
             </div>
             <div className="row gx-5 justify-content-center">
               <div className="col-lg-8 col-xl-6">
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN" onSubmit={handleSubmit(onSubmit)} >
+                <form id="contactForm"  onSubmit={handleSubmit(onSubmit)} >
                 <div className="form-floating mb-3">
               <input
                 className={`form-control ${errors.name ? 'is-invalid' : ''}`}
