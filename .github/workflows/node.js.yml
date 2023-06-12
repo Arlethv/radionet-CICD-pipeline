@@ -23,3 +23,6 @@ jobs:
 
       - name: Ejecutar pruebas unitarias
         run: npm test
+
+      - name: Establecer criterios de éxito
+        run: npm test APP.test.js

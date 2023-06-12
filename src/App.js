@@ -156,7 +156,7 @@ débil, y como meta, la expansión de sus servicios para brindar comunicación p
                 id="name"
                 name="name"
                 type="text"
-                placeholder="Ingrese su nombre..."
+                placeholder="Ingrese su nombre completo"
               />
               <label htmlFor="name">Nombre Completo</label>
               {errors.name && (
@@ -174,7 +174,7 @@ débil, y como meta, la expansión de sus servicios para brindar comunicación p
                 type="email"
                 placeholder="nombre@ejemplo.com"
               />
-              <label htmlFor="email">Correo Electrónico</label>
+              <label htmlFor="email">Correo Electrónico:</label>
               {errors.email && (
                 <div className="invalid-feedback">{errors.email.message}</div>
               )}
@@ -185,22 +185,22 @@ débil, y como meta, la expansión de sus servicios para brindar comunicación p
             <div className="form-floating mb-3">
             <input
                 className={`form-control ${errors.telefono ? 'is-invalid' : ''}`}
-                {...register('telefono', { required: 'El telefono es obligatorio', validate: validacionTelefono })}
+                {...register('telefono', { required: 'El numero de telefono es obligatorio', validate: validacionTelefono })}
                 id="telefono"
                 type="tel"
-                placeholder="nombre@ejemplo.com"
+                placeholder="Ingresa tu telefono"
               />
-              <label htmlFor="telefono">Correo Electrónico</label>
+              <label htmlFor="telefono">Teléfono:</label>
               {errors.telefono && (
                 <div className="invalid-feedback">{errors.telefono.message}</div>
               )}
               {isDirty && !errors.telefono && (
-                <div className="valid-feedback">El correo electrónico es válido.</div>
+                <div className="valid-feedback">El telefono es válido.</div>
               )}
             </div>
                   <div className="form-floating mb-3">
                     <textarea className="form-control" id="message" type="text" placeholder="Ingrese su mensaje aquí..." style={{ height: '10rem' }} data-sb-validations="required"></textarea>
-                    <label htmlFor="message">Mensaje</label>
+                    <label htmlFor="message">Mensaje:</label>
                   </div>
                   <div className="d-grid">
                     <button className="btn btn-primary btn-lg " id="submitButton" type="submit">Enviar</button>
