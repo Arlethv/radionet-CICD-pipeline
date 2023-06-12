@@ -119,7 +119,7 @@ function App() {
             <div className="col-lg-12 p-0">
               <div id="info1" className="bg-light  py-5 my-0">
                 <h2 className="mb-4">RadioNet!</h2>
-                <p className="radio mb-5">RadioNet es una estación innovadora y joven. Cuenta solo con doce empleados. Si bien
+                <p className="radio mb-5" >RadioNet es una estación innovadora y joven. Cuenta solo con doce empleados. Si bien
 comenzó operaciones en Silao, tiene como misión cubrir zonas en el Bajío, donde la señal es
 débil, y como meta, la expansión de sus servicios para brindar comunicación por Internet.</p>
               </div>

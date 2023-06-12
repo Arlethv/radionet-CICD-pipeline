@@ -10,16 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Obtener repositorio
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Configurar Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 14
 
-      - name: Install dependencies
+      - name: Instalar dependencias
         run: npm install
 
-      - name: Run unit tests
+      - name: Ejecutar pruebas unitarias
         run: npm test

@@ -101,5 +101,8 @@ header h3{
   transform: translateY(-2px);
 }
 
+#info1 p {
+  margin: 3%;
+}
 
 
