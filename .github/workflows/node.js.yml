@@ -26,9 +26,8 @@ jobs:
 
       - name: Establecer criterios de éxito
         run: npm test APP.test.js
-
         
-      # Agregar notificación en caso de que las pruebas fallen
+          # Agregar notificación en caso de que las pruebas fallen
       - name: Notificaciones en caso de fallo
         uses: actions-ecosystem/action-slack@v3
         with:
