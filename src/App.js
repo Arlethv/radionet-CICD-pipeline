@@ -17,8 +17,6 @@ function App() {
   } = useForm();
   const onSubmit = (data) => {
     if (!errors.name) {
-      // Aquí puedes realizar las acciones necesarias con los datos del formulario
-      // y luego mostrar el mensaje de éxito
       setIsFormSubmitted(true);
     }
     console.log(data);
