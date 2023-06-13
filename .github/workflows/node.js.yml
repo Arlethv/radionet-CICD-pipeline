@@ -26,20 +26,3 @@ jobs:
 
       - name: Establecer criterios de éxito
         run: npm test APP.test.js
-
-      - name: Notificaciones en caso de fallo de pruebas
-        if: ${{ failure() }}
-        uses: actions-ecosystem/action-slack@v3
-        with:
-          status: failure
-          env:
-            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
-      - name: Notificaciones en caso de merge directo a la rama Master
-        if: github.event_name == 'pull_request_target' && github.event.pull_request.base.ref == 'master' && github.event.action == 'synchronize'
-        uses: actions-ecosystem/action-slack@v3
-        with:
-          status: failure
-          env:
-            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-            MESSAGE: "Se ha intentado realizar un merge directo a la rama Master."
