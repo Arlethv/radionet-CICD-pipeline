@@ -26,7 +26,8 @@ jobs:
 
       - name: Establecer criterios de éxito
         run: npm test APP.test.js
-        
+
+
       - name: Notificaciones en caso de fallo
         if: ${{ failure() }}
         uses: actions-ecosystem/action-slack@v3
