@@ -3,7 +3,7 @@ import { render, screen, fireEvent, getByLabelText } from '@testing-library/reac
 import App from './App';
 
 describe('App', () => {
-  it('renders the form fields', () => {
+  it('Muestra los campos del formulario', () => {
     render(<App />);
     
     // Verificar que los campos de formulario estén presentes
@@ -14,7 +14,7 @@ describe('App', () => {
     expect(screen.getByRole('button', { name: 'Enviar' })).toBeInTheDocument();
   });
 
-  it('displays error messages when form is submitted with invalid data', async () => {
+  it('Muestra mensajes de error cuando el formulario se envía con datos no válidos', async () => {
     render(<App />);
 
     // Simular envío del formulario sin completar los campos requeridos
@@ -26,7 +26,7 @@ describe('App', () => {
     expect(await screen.findByText('El numero de telefono es obligatorio')).toBeInTheDocument();
   });
 
-  it('submits the form when valid data is entered', async () => {
+  it('Envía el formulario cuando se ingresan datos válidos', async () => {
     render(<App />);
 
     // Completar los campos requeridos
