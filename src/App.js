@@ -101,8 +101,8 @@ function App() {
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'flex',
           minHeight: '100vh'
-        }}
-      >
+        }}>
+          
         <div className="container px-4 px-lg-5 text-center">
           <h1 className="col-lg-12 text-white">RadioNet: </h1>
           <h3 >
