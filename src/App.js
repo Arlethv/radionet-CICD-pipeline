@@ -212,7 +212,7 @@ débil, y como meta, la expansión de sus servicios para brindar comunicación p
         )}
         {errors && Object.keys(errors).length > 0 && (
           <div className="text-danger" id="submitErrorMessage">
-            <div>Error al enviar el mensaje.</div>
+            <div>Error al enviar el formulario.</div>
           </div>
         )}
       </div>
