@@ -21,6 +21,11 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
+      - name: Verificar Calidad del Código
+        run: |
+          npx eslint src --ext .js,.jsx
+          npx prettier --check "src/**/*.{js,jsx}"
+
       - name: Ejecutar pruebas unitarias
         run: npm test
 
