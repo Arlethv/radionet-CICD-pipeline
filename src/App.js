@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import React from "react";
 import RadioNetImage from "./assets/img/RadioNet.svg";
 import escuchandoMusica from "./assets/img/escuchando-musica.svg";
-import { FaFacebook, FaTwitter, FaGithub } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaGithub, FaInstagram } from "react-icons/fa";
 import "./App.css";
 
 function App() {
@@ -288,7 +288,19 @@ function App() {
             <li className="list-inline-item">
               <a
                 className="social-link rounded-circle text-white"
+                href="https://www.instagram.com/ "
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaInstagram />
+              </a>
+            </li>
+            <li className="list-inline-item">
+              <a
+                className="social-link rounded-circle text-white"
                 href="https://www.github.com/ "
+                target="_blank"
+                rel="noreferrer"
               >
                 <FaGithub />
               </a>
