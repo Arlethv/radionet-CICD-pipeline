@@ -10,7 +10,7 @@ function App() {
   const {
     register,
     handleSubmit,
-    formState: { errors,isSubmitSuccessful, isDirty},
+    formState: { errors, isSubmitSuccessful, isDirty },
     trigger,
   } = useForm();
 
@@ -256,17 +256,19 @@ function App() {
                     </button>
                   </div>
                   <div className="text-center mt-3">
-        {isSubmitSuccessful && isDirty && (
-          <div className="text-success" id="submitSuccessMessage">
-            <div className="fw-bolder">¡Envío del formulario exitoso!</div>
-          </div>
-        )}
-        {errors && Object.keys(errors).length > 0 && (
-          <div className="text-danger" id="submitErrorMessage">
-            <div>Error al enviar el mensaje.</div>
-          </div>
-        )}
-      </div>
+                    {isSubmitSuccessful && isDirty && (
+                      <div className="text-success" id="submitSuccessMessage">
+                        <div className="fw-bolder">
+                          ¡Envío del formulario exitoso!
+                        </div>
+                      </div>
+                    )}
+                    {errors && Object.keys(errors).length > 0 && (
+                      <div className="text-danger" id="submitErrorMessage">
+                        <div>Error al enviar el mensaje.</div>
+                      </div>
+                    )}
+                  </div>
                 </form>
               </div>
             </div>
