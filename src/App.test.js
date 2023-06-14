@@ -14,7 +14,7 @@ describe("App", () => {
     expect(screen.getByRole("button", { name: "Enviar" })).toBeInTheDocument();
   });
 
-  it("Muestra mensajes de error cuando el formulario se envía con datos no válidos", async () => {
+  it("Muestra mensajes de error cuando en el formulario se ingresan datos no válidos", async () => {
     render(<App />);
 
     // Simular envío del formulario sin completar los campos requeridos
@@ -28,7 +28,7 @@ describe("App", () => {
       await screen.findByText("El correo electrónico es obligatorio")
     ).toBeInTheDocument();
     expect(
-      await screen.findByText("El numero de telefono es obligatorio")
+      await screen.findByText("El número de teléfono es obligatorio.")
     ).toBeInTheDocument();
   });
 
@@ -40,7 +40,7 @@ describe("App", () => {
       target: { value: "Yoselyn Vaquedano" },
     });
     fireEvent.change(screen.getByLabelText("Correo Electrónico:"), {
-      target: { value: "yoselyn@gmail.com" },
+      target: { value: "ejemplo@gmail.com" },
     });
     fireEvent.change(screen.getByLabelText("Teléfono:"), {
       target: { value: "123456789" },
