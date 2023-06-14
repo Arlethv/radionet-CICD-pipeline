@@ -3,14 +3,14 @@ import "bootstrap/dist/css/bootstrap.css";
 import React from "react";
 import RadioNetImage from "./assets/img/RadioNet.svg";
 import escuchandoMusica from "./assets/img/escuchando-musica.svg";
-import { FaFacebook, FaTwitter, FaGithub } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaGithub, FaInstagram } from "react-icons/fa";
 import "./App.css";
 
 function App() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful, isDirty },
     trigger,
   } = useForm();
 
@@ -213,7 +213,7 @@ function App() {
                         errors.telefono ? "is-invalid" : ""
                       }`}
                       {...register("telefono", {
-                        required: "El número de teléfono es obligatorio",
+                        required: "El número de teléfono es obligatorio.",
                         validate: validacionTelefono,
                       })}
                       id="telefono"
@@ -255,6 +255,20 @@ function App() {
                       Enviar
                     </button>
                   </div>
+                  <div className="text-center mt-3">
+                    {isSubmitSuccessful && isDirty && (
+                      <div className="text-success" id="submitSuccessMessage">
+                        <div className="fw-bolder">
+                          ¡Envío del formulario exitoso!
+                        </div>
+                      </div>
+                    )}
+                    {errors && Object.keys(errors).length > 0 && (
+                      <div className="text-danger" id="submitErrorMessage">
+                        <div>Error al enviar el mensaje.</div>
+                      </div>
+                    )}
+                  </div>
                 </form>
               </div>
             </div>
@@ -288,7 +302,19 @@ function App() {
             <li className="list-inline-item">
               <a
                 className="social-link rounded-circle text-white"
+                href="https://www.instagram.com/ "
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaInstagram />
+              </a>
+            </li>
+            <li className="list-inline-item">
+              <a
+                className="social-link rounded-circle text-white"
                 href="https://www.github.com/ "
+                target="_blank"
+                rel="noreferrer"
               >
                 <FaGithub />
               </a>
