@@ -38,6 +38,7 @@ function App() {
     return regex.test(value) || 'El número de teléfono no es válido.';
   };
   
+  
 
 
   return (
@@ -84,7 +85,7 @@ function App() {
             </div>
           </div>
         </nav>
-      
+        
       <header
         className="d-flex align-items-center"
         style={{
@@ -139,74 +140,83 @@ débil, y como meta, la expansión de sus servicios para brindar comunicación p
             </div>
             <div className="row gx-5 justify-content-center">
               <div className="col-lg-8 col-xl-6">
-                <form id="contactForm"  onSubmit={handleSubmit(onSubmit)} >
-                <div className="form-floating mb-3">
-              <input
-                className={`form-control ${errors.name ? 'is-invalid' : ''}`}
-                {...register('name', { required: 'El nombre es obligatorio', validate: validacionNombre })}
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Ingrese su nombre completo"
-              />
-              <label htmlFor="name">Nombre Completo</label>
-                {errors.name && (
-                  <div className="invalid-feedback">{errors.name.message}</div>
-                )}
-                {isDirty && !errors.name && (
-                  <div className="valid-feedback">El nombre es válido.</div>
-                )}
-            </div>
-                  <div className="form-floating mb-3">
-                  <input
-                className={`form-control ${errors.email ? 'is-invalid' : ''}`}
-                {...register('email', { required: 'El correo electrónico es obligatorio', validate: validacionCorreo })}
-                id="email"
-                type="email"
-                placeholder="nombre@ejemplo.com"
-              />
-              <label htmlFor="email">Correo Electrónico:</label>
-              {errors.email && (
-                <div className="invalid-feedback">{errors.email.message}</div>
-              )}
-              {isDirty && !errors.email && (
-                <div className="valid-feedback">El correo electrónico es válido.</div>
-              )}
-            </div>
-            <div className="form-floating mb-3">
-            <input
-                className={`form-control ${errors.telefono ? 'is-invalid' : ''}`}
-                {...register('telefono', { required: 'El numero de telefono es obligatorio', validate: validacionTelefono })}
-                id="telefono"
-                type="tel"
-                placeholder="Ingresa tu telefono"
-              />
-              <label htmlFor="telefono">Teléfono:</label>
-              {errors.telefono && (
-                <div className="invalid-feedback">{errors.telefono.message}</div>
-              )}
-              {isDirty && !errors.telefono && (
-                <div className="valid-feedback">El telefono es válido.</div>
-              )}
-            </div>
-                  <div className="form-floating mb-3">
-                    <textarea className="form-control" id="message" type="text" placeholder="Ingrese su mensaje aquí..." style={{ height: '10rem' }} data-sb-validations="required"></textarea>
-                    <label htmlFor="message">Mensaje:</label>
-                  </div>
-                  <div className="d-grid">
-                    <button className="btn btn-primary btn-lg " id="submitButton" type="submit">Enviar</button>
-                  </div>
-                  <div className="text-center mt-3">
-        {isSubmitSuccessful && isDirty && (
-          <div className="text-success" id="submitSuccessMessage">
-            <div className="fw-bolder">¡Envío del formulario exitoso!</div>
-          </div>
+              <form id="contactForm" onSubmit={handleSubmit(onSubmit)}>
+      <div className="form-floating mb-3">
+        <input
+          className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+          {...register('name', { required: 'El nombre es obligatorio', validate: validacionNombre })}
+          id="name"
+          type="text"
+          placeholder="Ingrese su nombre completo"
+          onBlur={() => {
+            trigger('name');
+          }}
+        />
+        <label htmlFor="name">Nombre Completo</label>
+        {errors.name && (
+          <div className="invalid-feedback">{errors.name.message}</div>
         )}
-        {errors && Object.keys(errors).length > 0 && (
-          <div className="text-danger" id="submitErrorMessage">
-            <div>Error al enviar el mensaje.</div>
-          </div>
+        {!errors.name && (
+          <div className="valid-feedback">El nombre es válido.</div>
         )}
+      </div>
+
+      <div className="form-floating mb-3">
+        <input
+          className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+          {...register('email', { required: 'El correo electrónico es obligatorio', validate: validacionCorreo })}
+          id="email"
+          type="email"
+          placeholder="nombre@ejemplo.com"
+          onBlur={() => {
+            // Validar el campo al perder el foco
+            trigger('email');
+          }}
+        />
+        <label htmlFor="email">Correo Electrónico:</label>
+        {errors.email && (
+          <div className="invalid-feedback">{errors.email.message}</div>
+        )}
+        {!errors.email && (
+          <div className="valid-feedback">El correo electrónico es válido.</div>
+        )}
+      </div>
+
+      <div className="form-floating mb-3">
+        <input
+          className={`form-control ${errors.telefono ? 'is-invalid' : ''}`}
+          {...register('telefono', { required: 'El número de teléfono es obligatorio', validate: validacionTelefono })}
+          id="telefono"
+          type="tel"
+          placeholder="Ingresa tu teléfono"
+          onBlur={() => {
+            // Validar el campo telefono al ingresar datos
+            trigger('telefono');
+          }}
+        />
+        <label htmlFor="telefono">Teléfono:</label>
+        {errors.telefono && (
+          <div className="invalid-feedback">{errors.telefono.message}</div>
+        )}
+        {!errors.telefono && (
+          <div className="valid-feedback">El teléfono es válido.</div>
+        )}
+      </div>
+
+      <div className="form-floating mb-3">
+        <textarea
+          className="form-control"
+          id="mensaje"
+          type="text"
+          placeholder="Ingrese su mensaje aquí..."
+          style={{ height: '10rem' }} 
+        ></textarea>
+        <label htmlFor="mensaje">Mensaje:</label>
+      </div>
+      <div className="d-grid">
+        <button className="btn btn-primary btn-lg" id="submitButton" type="submit">
+          Enviar
+        </button>
       </div>
     </form>
         </div>
