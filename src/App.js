@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import { useForm } from 'react-hook-form';
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
@@ -8,19 +8,18 @@ import { FaFacebook, FaTwitter, FaGithub } from 'react-icons/fa';
 import './App.css';
 
 function App() {
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+
+
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitSuccessful, isDirty },
+    formState: { errors},
     trigger
   } = useForm();
+
   const onSubmit = (data) => {
-    if (!errors.name) {
-      setIsFormSubmitted(true);
-    }
-    console.log(data);
-  };
+  console.log(data);
+};
 
   const validacionNombre = (value) => {
     // Expresión regular para permitir solo letras y espacios
@@ -39,20 +38,13 @@ function App() {
     return regex.test(value) || 'El número de teléfono no es válido.';
   };
   
-  
 
-  const handleInputChange = (e) => {
-    // Activar la validación del campo al ingresar valores
-    trigger(e.target.name);
-    trigger(e.target.email);
-    trigger(e.target.telefono);
-  };
 
   return (
     <div id="inicio">
       <nav className="navbar navbar-expand-lg navbar-light bg-dark">
           <div className="container">
-            <a className="navbar-brand text-white" href="#">
+            <a className="navbar-brand text-white" href="#inicio">
               RadioNet
             </a>
             <button
@@ -69,7 +61,7 @@ function App() {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                  <a className="nav-link text-white" href="#">
+                  <a className="nav-link text-white" href="#inicio">
                     Inicio
                   </a>
                 </li>
@@ -117,7 +109,7 @@ function App() {
           <div className="row justify-content-center">
             <div className="col-lg-12 p-0">
               <div id="info1" className="bg-light  py-5 my-0">
-                <h2 className="mb-4">RadioNet!</h2>
+                <h2 className="mb-4">RadioNet:</h2>
                 <p className="radio mb-5" >RadioNet es una estación innovadora y joven. Cuenta solo con doce empleados. Si bien
 comenzó operaciones en Silao, tiene como misión cubrir zonas en el Bajío, donde la señal es
 débil, y como meta, la expansión de sus servicios para brindar comunicación por Internet.</p>
@@ -147,76 +139,85 @@ débil, y como meta, la expansión de sus servicios para brindar comunicación p
             </div>
             <div className="row gx-5 justify-content-center">
               <div className="col-lg-8 col-xl-6">
-                <form id="contactForm"  onSubmit={handleSubmit(onSubmit)} >
-                <div className="form-floating mb-3">
-              <input
-                className={`form-control ${errors.name ? 'is-invalid' : ''}`}
-                {...register('name', { required: 'El nombre es obligatorio', validate: validacionNombre })}
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Ingrese su nombre completo"
-              />
-              <label htmlFor="name">Nombre Completo</label>
-              {errors.name && (
-                <div className="invalid-feedback">{errors.name.message}</div>
-              )}
-              {isDirty && !errors.name && (
-                <div className="valid-feedback">El nombre es válido.</div>
-              )}
-            </div>
-                  <div className="form-floating mb-3">
-                  <input
-                className={`form-control ${errors.email ? 'is-invalid' : ''}`}
-                {...register('email', { required: 'El correo electrónico es obligatorio', validate: validacionCorreo })}
-                id="email"
-                type="email"
-                placeholder="nombre@ejemplo.com"
-              />
-              <label htmlFor="email">Correo Electrónico:</label>
-              {errors.email && (
-                <div className="invalid-feedback">{errors.email.message}</div>
-              )}
-              {isDirty && !errors.email && (
-                <div className="valid-feedback">El correo electrónico es válido.</div>
-              )}
-            </div>
-            <div className="form-floating mb-3">
-            <input
-                className={`form-control ${errors.telefono ? 'is-invalid' : ''}`}
-                {...register('telefono', { required: 'El numero de telefono es obligatorio', validate: validacionTelefono })}
-                id="telefono"
-                type="tel"
-                placeholder="Ingresa tu telefono"
-              />
-              <label htmlFor="telefono">Teléfono:</label>
-              {errors.telefono && (
-                <div className="invalid-feedback">{errors.telefono.message}</div>
-              )}
-              {isDirty && !errors.telefono && (
-                <div className="valid-feedback">El telefono es válido.</div>
-              )}
-            </div>
-                  <div className="form-floating mb-3">
-                    <textarea className="form-control" id="message" type="text" placeholder="Ingrese su mensaje aquí..." style={{ height: '10rem' }} data-sb-validations="required"></textarea>
-                    <label htmlFor="message">Mensaje:</label>
-                  </div>
-                  <div className="d-grid">
-                    <button className="btn btn-primary btn-lg " id="submitButton" type="submit">Enviar</button>
-                  </div>
-                  <div className="text-center mt-3">
-        {isSubmitSuccessful && isDirty && (
-          <div className="text-success" id="submitSuccessMessage">
-            <div className="fw-bolder">¡Envío del formulario exitoso!</div>
-          </div>
+              <form id="contactForm" onSubmit={handleSubmit(onSubmit)}>
+      <div className="form-floating mb-3">
+        <input
+          className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+          {...register('name', { required: 'El nombre es obligatorio', validate: validacionNombre })}
+          id="name"
+          type="text"
+          placeholder="Ingrese su nombre completo"
+          onBlur={() => {
+            trigger('name');
+          }}
+        />
+        <label htmlFor="name">Nombre Completo</label>
+        {errors.name && (
+          <div className="invalid-feedback">{errors.name.message}</div>
         )}
-        {errors && Object.keys(errors).length > 0 && (
-          <div className="text-danger" id="submitErrorMessage">
-            <div>Error al enviar el mensaje.</div>
-          </div>
+        {!errors.name && (
+          <div className="valid-feedback">El nombre es válido.</div>
         )}
       </div>
-          </form>
+
+      <div className="form-floating mb-3">
+        <input
+          className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+          {...register('email', { required: 'El correo electrónico es obligatorio', validate: validacionCorreo })}
+          id="email"
+          type="email"
+          placeholder="nombre@ejemplo.com"
+          onBlur={() => {
+            // Validar el campo al perder el foco
+            trigger('email');
+          }}
+        />
+        <label htmlFor="email">Correo Electrónico:</label>
+        {errors.email && (
+          <div className="invalid-feedback">{errors.email.message}</div>
+        )}
+        {!errors.email && (
+          <div className="valid-feedback">El correo electrónico es válido.</div>
+        )}
+      </div>
+
+      <div className="form-floating mb-3">
+        <input
+          className={`form-control ${errors.telefono ? 'is-invalid' : ''}`}
+          {...register('telefono', { required: 'El número de teléfono es obligatorio', validate: validacionTelefono })}
+          id="telefono"
+          type="tel"
+          placeholder="Ingresa tu teléfono"
+          onBlur={() => {
+            // Validar el campo telefono al ingresar datos
+            trigger('telefono');
+          }}
+        />
+        <label htmlFor="telefono">Teléfono:</label>
+        {errors.telefono && (
+          <div className="invalid-feedback">{errors.telefono.message}</div>
+        )}
+        {!errors.telefono && (
+          <div className="valid-feedback">El teléfono es válido.</div>
+        )}
+      </div>
+
+      <div className="form-floating mb-3">
+        <textarea
+          className="form-control"
+          id="mensaje"
+          type="text"
+          placeholder="Ingrese su mensaje aquí..."
+          style={{ height: '10rem' }} 
+        ></textarea>
+        <label htmlFor="mensaje">Mensaje:</label>
+      </div>
+      <div className="d-grid">
+        <button className="btn btn-primary btn-lg" id="submitButton" type="submit">
+          Enviar
+        </button>
+      </div>
+    </form>
         </div>
       </div>
     </div>
@@ -227,12 +228,12 @@ débil, y como meta, la expansión de sus servicios para brindar comunicación p
       <div className="container px-4 px-lg-5">
         <ul className="list-inline mb-5">
           <li className="list-inline-item">
-            <a className="social-link rounded-circle text-white mr-3" href="https://www.facebook.com/" target="_blank">
+            <a className="social-link rounded-circle text-white mr-3" href="https://www.facebook.com/" target="_blank" rel="noreferrer">
               <FaFacebook />
             </a>
           </li>
           <li className="list-inline-item">
-            <a className="social-link rounded-circle text-white mr-3" href="https://www.twitter.com/" target="_blank">
+            <a className="social-link rounded-circle text-white mr-3" href="https://www.twitter.com/" target="_blank" rel="noreferrer">
               <FaTwitter />
             </a>
           </li>
