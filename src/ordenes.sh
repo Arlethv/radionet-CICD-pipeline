@@ -1,4 +1,4 @@
-
+#AWS SAM para poder ejecutar las órdenes desde un archivo .sh
 STACK_NAME="radionet-stack"
 TEMPLATE_FILE="despliegue.yaml"
 S3_BUCKET="radionet-bucket"
