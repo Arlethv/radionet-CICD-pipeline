@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Despliegue de la aplicacion React JS en AWS
+
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  MyECRRepository:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: radionet
+  
+  MyLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://radionet-bucket/lambda.js.zip
+      Handler: lambda.handler
+      Runtime: nodejs18.x
+
+Outputs:
+  LambdaFunctionName:
+    Value: arn:aws:iam::986278585322:role/cloudFormation
+    Description: nombre de la función lambda

@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import React from "react";
 import RadioNetImage from "./assets/img/RadioNet.svg";
 import escuchandoMusica from "./assets/img/escuchando-musica.svg";
-import { FaFacebook, FaTwitter, FaGithub, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram, FaTiktok } from "react-icons/fa";
 import "./App.css";
 
 function App() {
@@ -80,7 +80,7 @@ function App() {
         </div>
       </nav>
 
-      <header
+  <header
         className="d-flex align-items-center"
         style={{
           backgroundImage: `url(${RadioNetImage})`,
@@ -90,35 +90,40 @@ function App() {
           minHeight: "100vh",
         }}
       >
-        <div className="container px-4 px-lg-5 text-center">
-          <h1 className="col-lg-12 text-white">RadioNet: </h1>
+      <div className="container px-4 px-lg-5 text-center">
+        <div className="text-lg-end">
+          <h1 className="text-white mb-4">Bienvenido a RadioNet: </h1>
+          <div className="d-flex justify-content-center justify-content-lg-end">
           <h3>
-            <em className="bg-dark">Conéctate con la música que te mueve</em>
+            <em className="py-2 px-3 rounded">Conéctate con la música que te mueve</em>
           </h3>
-          <a className="btn btn-primary btn-xl" href="#contacto">
+          </div>
+          <a className="btn btn-primary btn-xl mt-4" href="#contacto">
             Escucha ahora
           </a>
         </div>
-      </header>
+     </div>
+  </header>
 
-      <section id="acerca" className="bg-light">
-        <div className="container-fluid px-0 text-center">
-          <div className="row justify-content-center">
-            <div className="col-lg-12 p-0">
-              <div id="info1" className="bg-light  py-5 my-0">
-                <h2 className="mb-4">RadioNet:</h2>
-                <p className="radio mb-5">
-                  RadioNet es una estación innovadora y joven. Cuenta solo con
-                  doce empleados. Si bien comenzó operaciones en Silao, tiene
-                  como misión cubrir zonas en el Bajío, donde la señal es débil,
-                  y como meta, la expansión de sus servicios para brindar
-                  comunicación por Internet.
+      <section id="acerca" class="bg-light">
+        <div class="container text-center">
+          <div id="info1"  class="row justify-content-center">
+            <div class="col-lg-8">
+              <div  class="bg-light py-5 my-0">
+                <h2 class="mb-4">RadioNet</h2>
+                <p class=" radio mb-4">
+                  Bienvenido a RadioNet, una estación de radio innovadora y joven. 
+                  Estamos comprometidos en ofrecerte la mejor experiencia auditiva. 
+                  Nuestro equipo de profesionales apasionados trabaja arduamente 
+                  para brindarte la mejor calidad de sonido y una programación variada que se adapte a tus gustos musicales y preferencias. Nos enorgullece servir a la comunidad del Bajío y más allá, brindando comunicación por Internet y llevando entretenimiento a cada rincón.
                 </p>
+                <a href="#contacto" class="btn btn-primary">Descubre más</a>
               </div>
             </div>
           </div>
         </div>
       </section>
+
 
       <section id="servicios">
         <img
@@ -312,11 +317,11 @@ function App() {
             <li className="list-inline-item">
               <a
                 className="social-link rounded-circle text-white"
-                href="https://www.github.com/ "
+                href="https://www.tiktok.com/ "
                 target="_blank"
                 rel="noreferrer"
               >
-                <FaGithub />
+                <FaTiktok />
               </a>
             </li>
           </ul>
