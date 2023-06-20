@@ -1,10 +1,10 @@
 version: 0.2
 
 phases:
-  pre_build:
+  build:
     commands:
-      - echo "Installing Bash"
-      - apt-get update && apt-get install -y bash
+      - /bin/sh -c "npm install"
+      - /bin/sh -c "npm run build"
 
   build:
     commands:
