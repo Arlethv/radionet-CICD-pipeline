@@ -5,6 +5,7 @@ phases:
     commands:
       - apt-get update
       - apt-get install -y bash
+      - which bash  
   build:
     commands:
       - npm install
