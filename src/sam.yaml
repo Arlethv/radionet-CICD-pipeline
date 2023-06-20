@@ -5,7 +5,7 @@ Resources:
   MyECRRepository:
     Type: AWS::ECR::Repository
     Properties:
-      RepositoryName: radionet
+      RepositoryName: radionet-app
     Metadata:
       SamResourceId: MyECRRepository
   MyLambdaFunction:

@@ -7,7 +7,7 @@ Resources:
   MyECRRepository:
     Type: AWS::ECR::Repository
     Properties:
-      RepositoryName: radionet
+      RepositoryName: radio
   
   MyLambdaFunction:
     Type: AWS::Serverless::Function
