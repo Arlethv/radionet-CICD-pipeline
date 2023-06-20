@@ -1,11 +1,12 @@
-version: 0.2
+version: 0.3
 
 phases:
   pre_build:
     commands:
       - apt-get update
       - apt-get install -y bash
-      - which bash  
+      - ln -sf /bin/bash /usr/bin/bash
+
   build:
     commands:
       - npm install
