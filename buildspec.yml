@@ -3,10 +3,7 @@ version: 0.2
 phases:
   build:
     commands:
-      - /bin/sh -c "npm install"
-      - /bin/sh -c "npm run build"
-
-  build:
-    commands:
       - npm install
       - npm run build
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f0v1c6e0/radionet-app
+      - docker pull public.ecr.aws/repository-url:latest
