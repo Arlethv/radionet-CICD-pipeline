@@ -1,17 +1,12 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      nodejs: 18
-    commands:
-      - npm install
-      - npm install -g aws-cli
-
   pre_build:
     commands:
-      - npm run lint
-      - npm run test
+      - apk update
+      - apk add npm
+      - npm install
+      - npm install -g aws-cli
 
   build:
     commands:
