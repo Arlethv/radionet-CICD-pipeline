@@ -1,1 +1,11 @@
 version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - apk update
+      - apk add bash
+  build:
+    commands:
+      - npm install
+      - npm run build
