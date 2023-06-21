@@ -13,7 +13,7 @@ phases:
 
   build:
     commands:
-      - apk add --no-cache bash
+      - apk add --no-cache basadd
       - source ~/.bashrc
       - npm run build
 
