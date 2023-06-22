@@ -1,20 +1,14 @@
 version: 0.2
 
+env:
+  shell: bash
+       
 phases:
-
-  pre_build:
+    pre_build:
     commands:
-      - apk update
-      - apk add npm
       - npm install
 
   build:
     commands:
-      - apk add --no-cache basadd
-      - source ~/.bashrc
-      - npm run build
-
-  post_build:
-    commands:
-      - npm test
-      - echo "Completado correctamente"
+      - npm run test
+      - npm run lint
