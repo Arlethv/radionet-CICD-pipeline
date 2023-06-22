@@ -1,14 +1,15 @@
 version: 0.2
 
-env:
-  shell: bash
-       
 phases:
-    pre_build:
-    commands:
-      - npm install
 
   build:
     commands:
-      - npm run test
-      - npm run lint
+      - echo "Creando la imagen de Docker"
+      - docker build -t radionet-app .
+      - echo "Etiquetando la imagen "
+      - docker tag radionet-app:latest public.ecr.aws/f0v1c6e0/radionet-app:latest
+      
+  post_build:
+    commands:
+      - echo "Enviar imagen al repositorio de AWS"
+      - docker push public.ecr.aws/f0v1c6e0/radionet-app:latest
