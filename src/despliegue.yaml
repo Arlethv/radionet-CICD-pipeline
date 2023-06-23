@@ -18,5 +18,9 @@ Resources:
 
 Outputs:
   LambdaFunctionName:
-    Value: arn:aws:iam::986278585322:role/cloudFormation
-    Description: nombre de la función lambda
+    Value: !GetAtt lambda.Arn
+    Description: Nombre de la función Lambda
+
+  ECRRepositoryName:
+    Value: !Ref radionet-app
+    Description: Nombre del repositorio de ECR
