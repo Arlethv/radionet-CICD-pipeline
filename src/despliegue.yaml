@@ -1,15 +1,14 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Despliegue de la aplicacion React JS en AWS
-
+Description: Despliegue de la aplicacion Radionet React JS en AWS.
 Transform: AWS::Serverless-2016-10-31
 
 Resources:
-  MyECRRepository:
+  radionetApp:
     Type: AWS::ECR::Repository
     Properties:
       RepositoryName: radionet-app
-  
-  MyLambdaFunction:
+
+  funcionLambda:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: s3://radionet-bucket/lambda.js.zip
@@ -17,10 +16,11 @@ Resources:
       Runtime: nodejs18.x
 
 Outputs:
-  LambdaFunctionName:
-    Value: !GetAtt lambda.Arn
-    Description: Nombre de la función Lambda
+  LambdaFunction:
+    Value: !GetAtt funcionLambda.Arn
+    Description: ARN de la Funcion lambda
 
   ECRRepositoryName:
-    Value: !Ref radionet-app
-    Description: Nombre del repositorio de ECR
+    Value: !Ref radionetApp
+    Description: Nombre del repositorio de ECR.
+

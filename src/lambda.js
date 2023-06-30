@@ -27,6 +27,3 @@ exports.handler = async (event) => {
   }
 };
 
-exports.handler = AWS.Lambda.createFunction({
-    FunctionName: 'funcionLambda',
-  }, exports.handler);
