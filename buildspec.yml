@@ -23,5 +23,5 @@ phases:
       - docker push public.ecr.aws/f0v1c6e0/radionet-app:latest
 
 artifacts:
-    files:
-      - public.ecr.aws/f0v1c6e0/radionet-app:latest
+  files:
+    - public.ecr.aws/f0v1c6e0/radionet-app:latest
