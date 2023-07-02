@@ -22,7 +22,7 @@ Outputs:
       Fn::GetAtt:
       - funcionLambda
       - Arn
-    Description: ARN de la Funcion lambda
+    Description: ARN de la Funcion lambda.
   ECRRepositoryName:
     Value:
       Ref: radionetApp
