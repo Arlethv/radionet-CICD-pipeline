@@ -1,4 +1,4 @@
-buildspec.ymlversion: 0.2
+version: 0.2
 
 env:
   shell: bash
@@ -23,7 +23,5 @@ phases:
       - docker push public.ecr.aws/f0v1c6e0/radionet-app:latest
 
 artifacts:
- - echo "Creando artifacts"
-  type: docker-image
   files:
     - '**/*'
