@@ -23,5 +23,7 @@ phases:
       - docker push public.ecr.aws/f0v1c6e0/radionet-app:latest
 
 artifacts:
+ - echo "Creando artifacts"
+  type: docker-image
   files:
-    - public.ecr.aws/f0v1c6e0/radionet-app:latest
+    - '**/*'
