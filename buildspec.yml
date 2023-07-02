@@ -4,7 +4,7 @@ env:
   shell: bash
 
 phases:
-    pre_build:
+  pre_build:
     commands:
       - npm install
 
@@ -22,6 +22,6 @@ phases:
       - echo "Enviar imagen al repositorio de AWS"
       - docker push public.ecr.aws/f0v1c6e0/radionet-app:latest
 
-  artifacts:
+artifacts:
     files:
       - public.ecr.aws/f0v1c6e0/radionet-app:latest
