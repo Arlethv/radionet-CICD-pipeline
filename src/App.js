@@ -124,7 +124,6 @@ function App() {
         </div>
       </section>
 
-
       <section id="servicios">
         <img
           src={escuchandoMusica}
