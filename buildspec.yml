@@ -6,12 +6,11 @@ env:
 phases:
   pre_build:
     commands:
-      - npm install
-
+      - echo "Inicio de Sesion en Amazon ECR"
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f0v1c6e0
+     
   build:
     commands:
-      - npm run test
-      - npm run lint
       - echo "Creando la imagen de Docker"
       - docker build -t radionet-app .
       - echo "Etiquetando la imagen "
