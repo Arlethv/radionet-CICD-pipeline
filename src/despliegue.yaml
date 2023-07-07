@@ -11,7 +11,7 @@ Resources:
   funcionLambda:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://radionet-bucket/lambda%2Ejs%2Ezip
+      CodeUri: s3://radionet-bucket/lambda.js.zip
       Handler: lambda.handler
       Runtime: nodejs18.x
 
