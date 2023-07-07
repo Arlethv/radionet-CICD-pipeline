@@ -114,7 +114,7 @@ function App() {
               <div className="bg-light py-5 my-0">
                 <h2 className="mb-4">RadioNet</h2>
                 <p className=" radio mb-4">
-                  Bienvenido a <em className="bg-transparent">RadioNet</em>, una
+                  Bienvenido a <strong>RadioNet</strong>, una
                   estación de radio innovadora y joven. Estamos comprometidos en
                   ofrecerte la mejor experiencia auditiva. Nuestro equipo de
                   profesionales apasionados trabaja arduamente para brindarte la
