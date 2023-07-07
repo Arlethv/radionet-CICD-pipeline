@@ -114,15 +114,14 @@ function App() {
               <div className="bg-light py-5 my-0">
                 <h2 className="mb-4">RadioNet</h2>
                 <p className=" radio mb-4">
-                  Bienvenido a <em className="bg-transparent">RadioNet</em>, una
-                  estación de radio innovadora y joven. Estamos comprometidos en
-                  ofrecerte la mejor experiencia auditiva. Nuestro equipo de
-                  profesionales apasionados trabaja arduamente para brindarte la
-                  mejor calidad de sonido y una programación variada que se
-                  adapte a tus gustos musicales y preferencias. Nos enorgullece
-                  servir a la comunidad del Bajío y más allá, brindando
-                  comunicación por Internet y llevando entretenimiento a cada
-                  rincón.
+                  Bienvenido a <strong> RadioNet </strong>, una estación de
+                  radio innovadora y joven. Estamos comprometidos en ofrecerte
+                  la mejor experiencia auditiva. Nuestro equipo de profesionales
+                  apasionados trabaja arduamente para brindarte la mejor calidad
+                  de sonido y una programación variada que se adapte a tus
+                  gustos musicales y preferencias. Nos enorgullece servir a la
+                  comunidad del Bajío y más allá, brindando comunicación por
+                  Internet y llevando entretenimiento a cada rincón.
                 </p>
                 <a href="#contacto" className="btn btn-primary">
                   Descubre más
